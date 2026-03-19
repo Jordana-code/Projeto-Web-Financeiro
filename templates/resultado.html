@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!--Só para testes-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado</title>
+</head>
+<body>
+{% if grafico %}
+
+<h1>Seu gráfico financeiro</h1>
+
+<img src="{{ url_for('static', filename='../static/grafico.png') }}?v={{ range(1,10000)|random }}">
+<!--Tem que ser assim para a imagem "grafico sobrescrever a outra, pra n precisar ficar apagando toda vez que for rodar o sistema"-->
+<h1>Organização financeira sugerida</h1>
+
+<img src="{{ url_for('static', filename='../static/grafico2.png') }}?v={{ range(1,10000)|random }}">
+
+{% endif %}
+
+{% if erro %}
+<p style="color:red;">{{ erro }}</p>
+{% endif %}
+</body>
+</html>
